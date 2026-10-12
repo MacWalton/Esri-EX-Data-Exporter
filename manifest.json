@@ -1,0 +1,17 @@
+{
+  "name": "area-data-export",
+  "label": "Area Data Export",
+  "type": "widget",
+  "version": "1.21.0",
+  "exbVersion": "1.21.0",
+  "author": "",
+  "description": "Draw an area on a web map and download the features inside it as DXF, Shapefile, GeoJSON, KML or CSV in a chosen coordinate system.",
+  "copyright": "",
+  "license": "Apache-2.0",
+  "properties": {},
+  "translatedLocales": ["en"],
+  "defaultSize": {
+    "width": 360,
+    "height": 680
+  }
+}

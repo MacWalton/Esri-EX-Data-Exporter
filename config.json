@@ -1,0 +1,19 @@
+{
+  "formats": ["dxf", "shp", "geojson", "kml", "csv"],
+  "defaultFormat": "dxf",
+  "spatialReferences": [8031, 8013, 8021, 7849, 7850, 7851, 7852, 7853, 7854, 7855, 7856, 28349, 28350, 28351, 28352, 28353, 28354, 28355, 28356, 7844, 4283, 4326, 3857, 9473],
+  "defaultWkid": 0,
+  "includeMapSpatialReference": true,
+  "allowCustomWkid": true,
+  "suggestGridZone": true,
+  "showTransformationChoice": true,
+  "clipToArea": true,
+  "includeAreaBoundary": true,
+  "preselectVisibleOnly": true,
+  "maxFeaturesPerLayer": 50000,
+  "maxAreaSqKm": 0,
+  "useDomainDescriptions": false,
+  "dxfLabels": true,
+  "wktLookupUrl": "https://spatialreference.org/ref/epsg/{wkid}/esriwkt.txt",
+  "fileNamePrefix": "area_export"
+}
