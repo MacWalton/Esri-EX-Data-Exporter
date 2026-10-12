@@ -30,8 +30,9 @@ runs in the browser: no geoprocessing service or server component is needed.
 
 ## Install (Experience Builder Developer Edition)
 
-Requires Experience Builder Developer Edition 1.20 or later (ArcGIS Maps SDK
-for JavaScript 5.x). Built and type-checked against 1.21 / SDK 5.1.
+Requires Experience Builder Developer Edition 1.17 or later (ArcGIS Maps SDK
+for JavaScript 4.32+). Type-checked against SDK 4.32, 4.33 and 5.1. It does not
+build on 1.16 or earlier, because those SDKs lack the geometry operators it uses.
 
 1. Clone this repository into the widgets folder, using the widget's name as
    the folder name:
@@ -48,9 +49,33 @@ for JavaScript 5.x). Built and type-checked against 1.21 / SDK 5.1.
 4. Add it to a page, then in its settings select the **Map** widget it should
    work with.
 
-To use it in ArcGIS Online / Enterprise Experience Builder, build the widget
-with the Developer Edition and register it as a custom widget per Esri's
-documentation for your platform.
+## Deploy to ArcGIS Enterprise
+
+Supported on ArcGIS Enterprise **11.5, 12.0 and 12.1**. Build with the
+Developer Edition that matches your Enterprise release:
+
+| ArcGIS Enterprise | Developer Edition | Build command | Output folder |
+|---|---|---|---|
+| 11.5 | 1.17 | `npm run build:prod` | `client/dist-prod/widgets` |
+| 12.0 | 1.18 | `npm run build:for-download` | `client/dist-download/widgets` |
+| 12.1 | 1.20 | `npm run build:for-download` | `client/dist-download/widgets` |
+
+1. Install that Developer Edition, clone this repo into
+   `client/your-extensions/widgets/area-data-export`, and set `exbVersion`
+   and `version` in `manifest.json` to the Developer Edition version.
+2. In `client/`, run the build command. Copy the output `widgets` folder
+   (including its `chunks` folder) to a web server.
+3. The web server must: serve over HTTPS with a CA-issued certificate, allow
+   anonymous access, enable CORS for your portal's domain, and serve `.json`
+   as `application/json`.
+4. Sign in to the portal as an administrator. In My Content choose
+   **Add Item → An application → Experience Builder widget**, and enter
+   `https://<server>/<path>/widgets/area-data-export/manifest.json`.
+5. Share the item with the groups (or organisation) that build apps. It then
+   appears under **Custom** in Experience Builder's Insert widget panel.
+
+To update later, replace the files on the web server; apps pick up the change
+automatically (set cache headers if browsers hold on to the old version).
 
 ## Settings (builder panel)
 

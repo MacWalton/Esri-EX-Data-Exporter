@@ -233,7 +233,7 @@ export function convertFeatures (graphics: Graphic[], kind: GeometryKind, opts: 
   let projected: AnyLayer[] = keep.map(i => geoms[i])
   const sourceSR = projected[0]?.spatialReference
   if (projected.length && sourceSR && !sourceSR.equals(opts.target)) {
-    projected = projectOperator.executeMany(projected, opts.target, { geographicTransformation: opts.transformation })
+    projected = projectOperator.executeMany(projected, opts.target, { geographicTransformation: opts.transformation ?? undefined })
     if (projected.every(p => !p)) throw new Error('projection-failed')
   }
   const features: ExportFeature[] = []
